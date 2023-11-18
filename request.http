@@ -1,0 +1,35 @@
+@BaseURL = http://localhost:5000/v1/api/users
+@params = {{findAll.response.body.result[0].id}}
+
+# @name create
+POST {{BaseURL}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "User_1",
+  "email": "User_1@example.com",
+  "password": "User@12"
+}
+
+###
+
+# @name findAll
+GET {{BaseURL}} HTTP/1.1
+
+###
+
+# @name findOne
+GET {{BaseURL}}/{{params}} HTTP/1.1
+
+###
+
+# @name update
+PUT {{BaseURL}}/{{params}} HTTP/1.1
+Content-Type: application/json
+
+{ 
+  "username": "User_55" 
+}
+
+###
+DELETE  {{BaseURL}}/{{params}} HTTP/1.1
